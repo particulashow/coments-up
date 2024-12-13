@@ -5,13 +5,13 @@ function addComment(text) {
   commentElement.textContent = text;
   commentElement.className = "comment";
 
-  // Adiciona o comentário no final (em baixo)
+  // Adiciona o comentário ao container
   container.appendChild(commentElement);
 
   // Remove o comentário após a animação
   setTimeout(() => {
     commentElement.remove();
-  }, 10000); // Duração da animação (10s)
+  }, 10000); // Duração total da animação
 }
 
 // Simula comentários para teste
