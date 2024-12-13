@@ -29,10 +29,8 @@ function simulateComments() {
 
   let index = 0;
   setInterval(() => {
-    if (document.querySelectorAll('.comment').length < 5) { // Máximo de 5 comentários visíveis
-      addComment(sampleComments[index]);
-      index = (index + 1) % sampleComments.length; // Recomeça quando acabar
-    }
+    addComment(sampleComments[index]);
+    index = (index + 1) % sampleComments.length; // Recomeça quando acabar
   }, 2000); // Intervalo entre comentários
 }
 
