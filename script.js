@@ -11,7 +11,7 @@ function addComment(text) {
   // Remove o comentário após a animação
   setTimeout(() => {
     commentElement.remove();
-  }, 5000); // Duração da animação
+  }, 10000); // Duração da animação (10s)
 }
 
 // Simula comentários para teste
@@ -29,9 +29,11 @@ function simulateComments() {
 
   let index = 0;
   setInterval(() => {
-    addComment(sampleComments[index]);
-    index = (index + 1) % sampleComments.length; // Recomeça quando acabar
-  }, 1500); // Intervalo entre comentários
+    if (document.querySelectorAll('.comment').length < 5) { // Máximo de 5 comentários visíveis
+      addComment(sampleComments[index]);
+      index = (index + 1) % sampleComments.length; // Recomeça quando acabar
+    }
+  }, 2000); // Intervalo entre comentários
 }
 
 // Inicia a simulação
