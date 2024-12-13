@@ -1,9 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-  background: transparent; /* Fundo transparente para OBS */
+  background: transparent;
   display: flex;
-  justify-content: flex-end; /* Alinha à direita */
+  justify-content: flex-end;
   height: 100vh;
   overflow: hidden;
 }
@@ -18,43 +18,33 @@ body {
   pointer-events: none;
   overflow: hidden;
   display: flex;
-  flex-direction: column-reverse; /* Comentários aparecem em baixo */
-  align-items: center; /* Centraliza os comentários */
+  flex-direction: column; /* Comentários sobem em ordem */
+  justify-content: flex-end; /* Aparecem em baixo */
 }
 
 .comment {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   color: #fff;
-  animation: slideUp 5s ease-in-out forwards, fadeInOut 5s ease-in-out forwards;
+  animation: slideUp 10s linear forwards;
   opacity: 0; /* Inicialmente invisível */
   max-width: 90%;
   text-align: center;
   line-height: 1.4;
+  padding: 10px;
 }
 
 /* Animação de subida */
 @keyframes slideUp {
   0% {
-    transform: translateY(100%);
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
   }
   100% {
     transform: translateY(-100%);
-  }
-}
-
-/* Animação de fade in e fade out */
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
     opacity: 0;
   }
 }
