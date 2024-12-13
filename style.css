@@ -18,8 +18,8 @@ body {
   pointer-events: none;
   overflow: hidden;
   display: flex;
-  flex-direction: column-reverse; /* Comentários começam em baixo */
-  justify-content: flex-start; /* Empurra comentários para cima */
+  flex-direction: column; /* Alinha comentários de baixo para cima */
+  justify-content: flex-end; /* Novos comentários aparecem em baixo */
   align-items: center; /* Centraliza horizontalmente */
 }
 
@@ -27,27 +27,28 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   color: #fff;
-  animation: moveUp 10s linear forwards;
-  opacity: 1; /* Inicialmente visível */
+  margin: 10px 0;
+  opacity: 0; /* Inicialmente invisível */
   max-width: 90%;
   text-align: center;
   line-height: 1.4;
-  padding: 10px;
-  transform: translateY(100%);
+  animation: fadeSlide 10s ease-in-out forwards; /* Combina fade e movimento */
 }
 
-/* Movimento de baixo para cima */
-@keyframes moveUp {
+/* Movimento suave de baixo para cima */
+@keyframes fadeSlide {
   0% {
     transform: translateY(100%);
+    opacity: 0;
+  }
+  10% {
     opacity: 1;
   }
   90% {
-    transform: translateY(0%);
     opacity: 1;
+    transform: translateY(-100%);
   }
   100% {
-    transform: translateY(-100%);
     opacity: 0;
   }
 }
