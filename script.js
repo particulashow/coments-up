@@ -5,7 +5,7 @@ function addComment(text) {
   commentElement.textContent = text;
   commentElement.className = "comment";
 
-  // Adiciona o comentário ao container
+  // Adiciona o comentário no final (em baixo)
   container.appendChild(commentElement);
 
   // Remove o comentário após a animação
