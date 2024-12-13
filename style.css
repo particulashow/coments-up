@@ -18,8 +18,8 @@ body {
   pointer-events: none;
   overflow: hidden;
   display: flex;
-  flex-direction: column; /* Alinha comentários de baixo para cima */
-  justify-content: flex-end; /* Novos comentários aparecem em baixo */
+  flex-direction: column-reverse; /* Alinha os comentários de baixo para cima */
+  justify-content: flex-start;
   align-items: center; /* Centraliza horizontalmente */
 }
 
@@ -28,25 +28,32 @@ body {
   font-size: 1.5rem;
   color: #fff;
   margin: 10px 0;
-  opacity: 0; /* Inicialmente invisível */
   max-width: 90%;
   text-align: center;
   line-height: 1.4;
-  animation: fadeSlide 10s ease-in-out forwards; /* Combina fade e movimento */
+  opacity: 1;
+  position: absolute;
+  bottom: 0; /* Inicia no fundo */
+  animation: moveUp 10s linear forwards, fadeOut 10s ease-out forwards;
 }
 
-/* Movimento suave de baixo para cima */
-@keyframes fadeSlide {
+/* Movimento contínuo de baixo para cima */
+@keyframes moveUp {
   0% {
-    transform: translateY(100%);
-    opacity: 0;
+    transform: translateY(0%);
   }
-  10% {
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+/* Fade out suave */
+@keyframes fadeOut {
+  0% {
     opacity: 1;
   }
-  90% {
+  80% {
     opacity: 1;
-    transform: translateY(-100%);
   }
   100% {
     opacity: 0;
